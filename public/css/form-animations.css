@@ -1,0 +1,543 @@
+/* Form Container Styles */
+.contact-form-container {
+  margin-top: 2rem;
+}
+
+.row {
+  display: flex;
+  flex-wrap: wrap;
+  margin-right: -15px;
+  margin-left: -15px;
+}
+
+.col-md-6 {
+  position: relative;
+  width: 100%;
+  padding-right: 15px;
+  padding-left: 15px;
+}
+
+@media (min-width: 768px) {
+  .col-md-6 {
+    flex: 0 0 50%;
+    max-width: 50%;
+  }
+}
+
+/* Animated Form Styles */
+.animated-form {
+  padding: 1.5rem;
+  background-color: var(--white);
+  border-radius: var(--border-radius);
+  box-shadow: var(--box-shadow);
+}
+
+.form-group {
+  margin-bottom: 1.5rem;
+  position: relative;
+}
+
+/* Input Wrapper Styles */
+.input-wrapper {
+  position: relative;
+  overflow: hidden;
+}
+
+/* Animated Input Styles */
+.animated-input {
+  display: block;
+  width: 100%;
+  padding: 0.75rem;
+  font-size: 1rem;
+  line-height: 1.5;
+  color: var(--dark-gray);
+  background-color: transparent;
+  border: 2px solid #e0e0e0;
+  border-radius: var(--border-radius);
+  transition: all 0.3s ease;
+}
+
+.animated-input:focus {
+  outline: none;
+  border-color: var(--steel-blue);
+  box-shadow: 0 0 0 3px rgba(70, 130, 180, 0.2);
+}
+
+/* Input animation on focus/valid state */
+.animated-input:focus + .animated-label,
+.animated-input:not(:placeholder-shown) + .animated-label,
+.animated-input:valid + .animated-label {
+  transform: translateY(-2.5rem) scale(0.85);
+  color: var(--steel-blue);
+  font-weight: 600;
+}
+
+.animated-input:focus ~ .input-status-icon,
+.animated-input:valid ~ .input-status-icon {
+  opacity: 1;
+  transform: translateY(-50%) scale(1);
+}
+
+/* Invalid input animation */
+.animated-input:invalid:not(:focus):not(:placeholder-shown) {
+  border-color: #ff3b30;
+}
+
+.animated-input:invalid:not(:focus):not(:placeholder-shown) ~ .input-status-icon {
+  opacity: 1;
+  transform: translateY(-50%) scale(1);
+  color: #ff3b30;
+}
+
+.animated-input:invalid:not(:focus):not(:placeholder-shown) ~ .error-message {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+/* Animated Label Styles */
+.animated-label {
+  position: absolute;
+  top: 0.75rem;
+  left: 0.75rem;
+  font-size: 1rem;
+  color: var(--slate-gray);
+  pointer-events: none;
+  transition: all 0.3s ease, font-weight 0s;
+  transform-origin: left top;
+  background-color: var(--white);
+  padding: 0 0.3rem;
+}
+
+/* Status Icon Styles */
+.input-status-icon {
+  position: absolute;
+  top: 50%;
+  right: 0.75rem;
+  transform: translateY(-50%) scale(0.8);
+  opacity: 0;
+  transition: all 0.3s ease;
+}
+
+.input-status-icon::before {
+  font-family: 'Font Awesome 5 Free';
+  font-weight: 900;
+  content: '\f00c'; /* check icon */
+  color: #4cd964; /* success color */
+}
+
+.animated-input:invalid:not(:placeholder-shown) ~ .input-status-icon::before {
+  content: '\f00d'; /* X icon */
+  color: #ff3b30; /* error color */
+}
+
+/* Error Message Styles */
+.error-message {
+  font-size: 0.8rem;
+  color: #ff3b30;
+  margin-top: 0.25rem;
+  opacity: 0;
+  transform: translateY(-10px);
+  transition: all 0.3s ease;
+}
+
+/* Select Wrapper Styles */
+.select-wrapper::after {
+  font-family: 'Font Awesome 5 Free';
+  font-weight: 900;
+  content: '\f078'; /* chevron down */
+  position: absolute;
+  top: 50%;
+  right: 0.75rem;
+  transform: translateY(-50%);
+  color: var(--slate-gray);
+  pointer-events: none;
+}
+
+select.animated-input {
+  -webkit-appearance: none;
+  -moz-appearance: none;
+  appearance: none;
+  cursor: pointer;
+}
+
+/* Textarea Styles */
+textarea.animated-input {
+  resize: vertical;
+  min-height: 120px;
+}
+
+textarea.animated-input + .animated-label {
+  top: 0.75rem;
+}
+
+textarea.animated-input:focus + .animated-label,
+textarea.animated-input:not(:placeholder-shown) + .animated-label,
+textarea.animated-input:valid + .animated-label {
+  transform: translateY(-2.5rem) scale(0.85);
+}
+
+/* Checkbox Wrapper Styles */
+.checkbox-wrapper {
+  display: flex;
+  align-items: flex-start;
+}
+
+/* Animated Checkbox Styles */
+.animated-checkbox {
+  position: absolute;
+  opacity: 0;
+  cursor: pointer;
+  height: 0;
+  width: 0;
+}
+
+.checkbox-wrapper label {
+  position: relative;
+  padding-left: 35px;
+  cursor: pointer;
+  font-size: 0.9rem;
+  display: inline-block;
+  color: var(--slate-gray);
+}
+
+.checkbox-wrapper label::before {
+  content: '';
+  position: absolute;
+  left: 0;
+  top: 0;
+  width: 24px;
+  height: 24px;
+  border: 2px solid #e0e0e0;
+  border-radius: 4px;
+  transition: all 0.3s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+}
+
+.checkbox-wrapper label::after {
+  font-family: 'Font Awesome 5 Free';
+  font-weight: 900;
+  content: '\f00c';
+  position: absolute;
+  left: 5px;
+  top: 2px;
+  color: var(--white);
+  font-size: 14px;
+  opacity: 0;
+  transform: scale(0);
+  transition: transform 0.3s cubic-bezier(0.175, 0.885, 0.32, 1.5), opacity 0.2s ease;
+}
+
+.animated-checkbox + label:hover::before {
+  border-color: #bdbdbd;
+  transform: scale(1.05);
+}
+
+.animated-checkbox:checked + label::before {
+  background-color: var(--steel-blue);
+  border-color: var(--steel-blue);
+  transform: scale(1.1);
+}
+
+.animated-checkbox:checked + label::after {
+  opacity: 1;
+  transform: scale(1);
+}
+
+.animated-checkbox:focus + label::before {
+  box-shadow: 0 0 0 3px rgba(70, 130, 180, 0.2);
+}
+
+/* Simulate click animation when validating */
+.animated-checkbox.shake + label::before {
+  animation: pulseCheckbox 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+  border-color: var(--error-red);
+}
+
+@keyframes pulseCheckbox {
+  0%, 100% { transform: scale(1); }
+  50% { transform: scale(1.1); }
+}
+
+/* Submit Button Styles */
+.submit-button {
+  position: relative;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  padding: 0.75rem 1.5rem;
+  font-size: 1rem;
+  font-weight: 600;
+  background-color: var(--steel-blue);
+  color: var(--white);
+  border: none;
+  border-radius: var(--border-radius);
+  cursor: pointer;
+  overflow: hidden;
+  transition: all 0.3s ease;
+  width: 100%;
+  height: 50px;
+}
+
+/* Ripple effect for buttons */
+.submit-button {
+  --ripple-x: 50%;
+  --ripple-y: 50%;
+}
+
+.submit-button:hover {
+  background-color: #3a6d99;
+  transform: translateY(-2px);
+  box-shadow: 0 4px 10px rgba(70, 130, 180, 0.3);
+  animation: buttonPulse 1.5s infinite;
+}
+
+/* Special animated button effect */
+.animated-button {
+  position: relative;
+  overflow: hidden;
+}
+
+.button-shine {
+  position: absolute;
+  top: 0;
+  left: -100%;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(
+    90deg, 
+    rgba(255, 255, 255, 0) 0%, 
+    rgba(255, 255, 255, 0.2) 50%, 
+    rgba(255, 255, 255, 0) 100%
+  );
+  transition: none;
+  pointer-events: none;
+}
+
+.animated-button:hover .button-shine {
+  animation: shineEffect 1.5s infinite;
+}
+
+@keyframes shineEffect {
+  0% {
+    left: -100%;
+  }
+  20% {
+    left: 100%;
+  }
+  100% {
+    left: 100%;
+  }
+}
+
+.submit-button:active {
+  transform: translateY(0);
+}
+
+.submit-button::after {
+  content: '';
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  top: 0;
+  left: 0;
+  pointer-events: none;
+  background-image: radial-gradient(circle, #fff 10%, transparent 10.01%);
+  background-repeat: no-repeat;
+  background-position: var(--ripple-x) var(--ripple-y);
+  transform: scale(10, 10);
+  opacity: 0;
+  transition: transform .5s, opacity 1s;
+}
+
+.submit-button:active::after,
+.submit-button.ripple-active::after {
+  transform: scale(0, 0);
+  opacity: 0.3;
+  transition: 0s;
+}
+
+/* Pulse effect on hover */
+@keyframes buttonPulse {
+  0% { box-shadow: 0 4px 10px rgba(70, 130, 180, 0.3); }
+  70% { box-shadow: 0 4px 15px rgba(70, 130, 180, 0.6); }
+  100% { box-shadow: 0 4px 10px rgba(70, 130, 180, 0.3); }
+}
+
+.button-text {
+  transition: all 0.3s ease;
+}
+
+.button-icon {
+  margin-left: 0.5rem;
+  opacity: 0;
+  transform: translateX(10px);
+  transition: all 0.3s ease;
+}
+
+.submit-button:hover .button-icon {
+  opacity: 1;
+  transform: translateX(0);
+}
+
+/* Button loading animation */
+.button-loader {
+  position: absolute;
+  width: 20px;
+  height: 20px;
+  border: 3px solid rgba(255, 255, 255, 0.3);
+  border-top: 3px solid var(--white);
+  border-radius: 50%;
+  opacity: 0;
+  visibility: hidden;
+  transition: all 0.3s ease;
+}
+
+.submit-button.loading .button-text,
+.submit-button.loading .button-icon {
+  opacity: 0;
+  visibility: hidden;
+}
+
+.submit-button.loading .button-loader {
+  opacity: 1;
+  visibility: visible;
+  animation: spin 1s linear infinite;
+}
+
+@keyframes spin {
+  0% { transform: rotate(0deg); }
+  100% { transform: rotate(360deg); }
+}
+
+/* Submit button success animation */
+.submit-button.success {
+  background-color: #4cd964;
+}
+
+.submit-button.success::before {
+  content: '\f00c';
+  font-family: 'Font Awesome 5 Free';
+  font-weight: 900;
+}
+
+/* Submit button error animation */
+.submit-button.error {
+  background-color: #ff3b30;
+}
+
+/* Success Modal Styles */
+.success-modal {
+  display: none;
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.5);
+  z-index: 1000;
+  align-items: center;
+  justify-content: center;
+}
+
+.success-modal.active {
+  display: flex;
+}
+
+.success-modal-content {
+  background-color: var(--white);
+  border-radius: var(--border-radius);
+  box-shadow: var(--box-shadow);
+  padding: 2rem;
+  text-align: center;
+  width: 90%;
+  max-width: 500px;
+}
+
+.success-icon {
+  width: 80px;
+  height: 80px;
+  background-color: #4cd964;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin: 0 auto 1.5rem;
+  color: var(--white);
+  font-size: 2rem;
+}
+
+/* Focus states for accessibility */
+.animated-input:focus,
+.animated-checkbox:focus + label,
+.submit-button:focus {
+  outline: none;
+  box-shadow: 0 0 0 3px rgba(70, 130, 180, 0.4);
+}
+
+/* Input shake animation for validation errors */
+@keyframes shakeX {
+  0%, 100% { transform: translateX(0); }
+  20%, 60% { transform: translateX(-5px); }
+  40%, 80% { transform: translateX(5px); }
+}
+
+.animated-input.shake {
+  animation: shakeX 0.6s;
+  border-color: #ff3b30;
+}
+
+/* Form field highlight animation */
+@keyframes highlightField {
+  0% { box-shadow: 0 0 0 0 rgba(70, 130, 180, 0.4); }
+  70% { box-shadow: 0 0 0 10px rgba(70, 130, 180, 0); }
+  100% { box-shadow: 0 0 0 0 rgba(70, 130, 180, 0); }
+}
+
+.animated-input.highlight {
+  animation: highlightField 1s;
+}
+
+/* Placeholder styling for browsers that support it */
+.animated-input::placeholder {
+  color: transparent;
+}
+
+/* Make sure empty input field doesn't show the label on top */
+.animated-input:placeholder-shown + .animated-label {
+  transform: translateY(0) scale(1);
+  color: var(--slate-gray);
+}
+
+/* Firefox-specific styling for labels */
+@-moz-document url-prefix() {
+  .animated-input:valid:not(:focus) + .animated-label {
+    transform: translateY(-2.5rem) scale(0.85);
+  }
+}
+
+/* Touch device adjustments */
+@media (hover: none) {
+  .animated-input:focus {
+    font-size: 16px; /* Prevent zoom on iOS */
+  }
+  
+  .submit-button:hover {
+    transform: none;
+    box-shadow: none;
+  }
+  
+  .submit-button:hover .button-icon {
+    opacity: 1;
+    transform: translateX(0);
+  }
+}
+
+/* Additional adaptive spacing for small screens */
+@media (max-width: 576px) {
+  .animated-form {
+    padding: 1rem;
+  }
+  
+  .form-group {
+    margin-bottom: 1.2rem;
+  }
+}
