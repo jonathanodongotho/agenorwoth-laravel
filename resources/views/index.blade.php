@@ -38,8 +38,8 @@
                 <h1 class="hero-title">Building the Future with Excellence</h1>
                 <p class="hero-subtitle">Providing top-quality construction and engineering services across Uganda</p>
                 <div class="hero-buttons">
-                  <a href="projects.html" class="btn-primary">See Our Work</a>
-                  <a href="contact.html" class="btn-secondary">Get a Quote</a>
+                  <a href="{{ route('projects') }}" class="btn-primary">See Our Work</a>
+                  <a href="{{ route('contact') }}" class="btn-secondary">Get a Quote</a>
                 </div>
               </div>
             </div>
@@ -60,7 +60,7 @@
                     priorities of your day today business, while we take care of
                     your construction works and equipment.
                   </p>
-                  <a href="about.html" style="color: var(--steel-blue); font-weight: bold; display: inline-flex; align-items: center;">
+                  <a href="{{ route('about') }}" style="color: var(--steel-blue); font-weight: bold; display: inline-flex; align-items: center;">
                     Learn more about us <i class="fas fa-arrow-right" style="margin-left: 0.5rem;"></i>
                   </a>
                 </div>
@@ -99,7 +99,7 @@
                 </div>
               </div>
               <div class="text-center" style="margin-top: 3rem;">
-                <a href="services.html" class="btn-primary fade-in delay-500" style="background-color: var(--steel-blue); color: var(--white);">View All Services</a>
+                <a href="{{ route('services') }}" class="btn-primary fade-in delay-500" style="background-color: var(--steel-blue); color: var(--white);">View All Services</a>
               </div>
             </div>
           </div>
@@ -275,7 +275,7 @@
                 </div>
               </div>
               <div class="text-center" style="margin-top: 3rem;">
-                <a href="projects.html" class="btn-primary zoom-in delay-500" style="background-color: var(--steel-blue); color: var(--white);">View All Projects</a>
+                <a href="{{ route('projects') }}" class="btn-primary zoom-in delay-500" style="background-color: var(--steel-blue); color: var(--white);">View All Projects</a>
               </div>
             </div>
           </div>
@@ -288,7 +288,7 @@
                 <p style="font-size: 1.1rem; color: var(--light-gray); margin-bottom: 2.5rem; max-width: 700px; margin: 0 auto 2.5rem; text-shadow: 1px 1px 3px rgba(0,0,0,0.5);">
                   Contact us today for a consultation and quote. Our team of experts is ready to bring your construction vision to life.
                 </p>
-                <a href="contact.html" class="btn-primary" style="background-color: var(--white); color: var(--earth-tone); transform: scale(1.1); box-shadow: 0 4px 15px rgba(0,0,0,0.2);">Contact Us Today</a>
+                <a href="{{ route('contact') }}" class="btn-primary" style="background-color: var(--white); color: var(--earth-tone); transform: scale(1.1); box-shadow: 0 4px 15px rgba(0,0,0,0.2);">Contact Us Today</a>
               </div>
             </div>
           </div>
@@ -304,40 +304,15 @@
           </div>
           
           <div class="row" style="justify-content: center;">
-            <div class="col-md-6">
-              <form id="newsletterForm" class="needs-validation text-secondary" validate>
+            <div class="col-md-6" style="justify-content: center;">
 
-                <p class="section-subtitle">Subscribe to our newsletter to receive updates about our latest projects and services.</p>
-                <!-- Name -->
-                <div class="mb-3">
-                  <label for="newsletter-name" class="form-label">Your Name</label>
-                  <input type="text" class="form-control" id="newsletter-name" required>
-                  <div class="invalid-feedback">Please enter your name</div>
-                </div>
-              
-                <!-- Email -->
-                <div class="mb-3">
-                  <label for="newsletter-email" class="form-label">Your Email Address</label>
-                  <input type="email" class="form-control" id="newsletter-email" required>
-                  <div class="invalid-feedback">Please enter a valid email address</div>
-                </div>
-              
-                <!-- Consent Checkbox -->
-                <div class="mb-3 form-check">
-                  <input class="form-check-input" type="checkbox" id="newsletter-consent" required>
-                  <label class="form-check-label" for="newsletter-consent">
-                    I agree to receive newsletters and updates from Agenorwot Technical Contractors Ltd
-                  </label>
-                  <div class="invalid-feedback">You must agree to receive newsletters</div>
-                </div>
-              
-                <!-- Submit Button -->
-                <div class="mb-3">
-                  <button type="submit" class="btn btn-success">
-                    <i class="fas fa-envelope me-1"></i> Subscribe Now
-                  </button>
-                </div>
-              </form>
+              <p class="section-subtitle">Subscribe to our newsletter to receive updates about our latest projects and services.</p>
+
+              <div style="display: flex; flex-direction: column;">
+                <a class="btn p-3 text-white" style="background: rgb(3, 98, 175)" href="{{ route('indexform') }}">Subscribe here</a>
+              </div>
+
+
             </div>
           </div>
         </div>

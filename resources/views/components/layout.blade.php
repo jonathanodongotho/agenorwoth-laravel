@@ -1,6 +1,38 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
+
+<script>
+  const btn = document.getElementById('button');
+
+document.getElementById('form')
+ .addEventListener('submit', function(event) {
+   event.preventDefault();
+
+   btn.value = 'Sending...';
+
+   const serviceID = 'default_service';
+   const templateID = 'template_c6awltk';
+
+   emailjs.sendForm(serviceID, templateID, this)
+    .then(() => {
+      btn.value = 'Send Email';
+      alert('Sent!');
+    }, (err) => {
+      btn.value = 'Send Email';
+      alert(JSON.stringify(err));
+    });
+  });
+</script>
+
+<script type="text/javascript"
+                      src="https://cdn.jsdelivr.net/npm/@emailjs/browser@4/dist/email.min.js"></script>
+                    
+                    <script type="text/javascript">
+                      emailjs.init('3p_qPAO_XJSoCTFZ8')
+                    </script>
+
+
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Agenorwot Technical Contractors Ltd</title>
@@ -17,6 +49,11 @@
   <script src="{{ asset('js/scripts.js') }}" defer></script>
   <script src="{{ asset('js/form-animations.js') }}" defer></script>
   <script src="{{ asset('js/bootstrap.bundle.js') }}"></script>
+
+
+  
+
+
   <style>
     .navbar-toggler{
       border: none;
@@ -151,6 +188,42 @@
       const fadeElements = document.querySelectorAll('.fade-in');
       fadeElements.forEach(element => {
         observer.observe(element);
+      });
+    });
+ 
+    // Project filtering logic
+    document.addEventListener('DOMContentLoaded', function() {
+      const filterBtns = document.querySelectorAll('.filter-btn');
+      const projectItems = document.querySelectorAll('.project-item');
+      
+      filterBtns.forEach(btn => {
+        btn.addEventListener('click', function() {
+          // Remove active class from all buttons
+          filterBtns.forEach(button => button.classList.remove('active'));
+          
+          // Add active class to clicked button
+          this.classList.add('active');
+          
+          // Get the filter value
+          const filterValue = this.getAttribute('data-filter');
+          
+          // Filter projects
+          projectItems.forEach(item => {
+            if (filterValue === 'all' || item.getAttribute('data-category') === filterValue) {
+              item.style.display = 'block';
+              setTimeout(() => {
+                item.style.opacity = '1';
+                item.style.transform = 'translateY(0)';
+              }, 100);
+            } else {
+              item.style.opacity = '0';
+              item.style.transform = 'translateY(20px)';
+              setTimeout(() => {
+                item.style.display = 'none';
+              }, 300);
+            }
+          });
+        });
       });
     });
   </script>

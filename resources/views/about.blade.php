@@ -224,7 +224,7 @@
               <div class="text-center fade-in">
                 <h2 style="font-size: 2rem; color: var(--white); margin-bottom: 1.5rem;">Ready to Work With Us?</h2>
                 <p style="color: var(--light-gray); margin-bottom: 2rem; max-width: 700px; margin: 0 auto 2rem;">Contact our team today to discuss your construction project needs and discover how we can bring your vision to life.</p>
-                <a href="contact.html" class="btn-primary" style="background-color: var(--white); color: var(--earth-tone);">Contact Us Today</a>
+                <a href="{{ route('contact') }}" class="btn-primary" style="background-color: var(--white); color: var(--earth-tone);">Contact Us Today</a>
               </div>
             </div>
           </div>

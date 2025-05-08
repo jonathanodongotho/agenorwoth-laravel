@@ -386,7 +386,7 @@
               <div class="text-center fade-in">
                 <h2 style="font-size: 2rem; color: var(--white); margin-bottom: 1.5rem;">Have a Project in Mind?</h2>
                 <p style="color: var(--light-gray); margin-bottom: 2rem; max-width: 700px; margin: 0 auto 2rem;">Let's discuss how Agenorwot Technical Contractors can bring your construction vision to life with our proven expertise and dedication to quality.</p>
-                <a href="contact.html" class="btn-primary animated-button" style="background-color: var(--white); color: var(--earth-tone);">
+                <a href="{{ route('projects') }}" class="btn-primary animated-button" style="background-color: var(--white); color: var(--earth-tone);">
                   <span class="button-text">Start Your Project</span>
                   <i class="button-icon fas fa-arrow-right"></i>
                   <span class="button-shine"></span>

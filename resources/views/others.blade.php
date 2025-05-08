@@ -322,7 +322,7 @@
               <div class="text-center fade-in">
                 <h2 style="font-size: 2rem; color: var(--white); margin-bottom: 1.5rem;">Still Have Questions?</h2>
                 <p style="color: var(--light-gray); margin-bottom: 2rem; max-width: 700px; margin: 0 auto 2rem;">Contact our team for more information about our services, certifications, or to discuss your specific project requirements.</p>
-                <a href="contact.html" class="btn-primary animated-button" style="background-color: var(--white); color: var(--earth-tone);">
+                <a href="{{ route('contact') }}" class="btn-primary animated-button" style="background-color: var(--white); color: var(--earth-tone);">
                   <span class="button-text">Contact Us Today</span>
                   <i class="button-icon fas fa-envelope"></i>
                   <span class="button-shine"></span>
