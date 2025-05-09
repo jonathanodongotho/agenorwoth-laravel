@@ -11,12 +11,13 @@ use Illuminate\Support\Facades\Route;
 
 Route::get('/', [Index::class,'index'])->name('index');
 
-Route::get('/subscribe', [indexformController::class,'formview'])->name('indexform');
-Route::post('/subscribe', [indexformController::class,'formsubmit'])->name('indexform.submit');
+Route::get('subscribe', [indexformController::class,'formview'])->name('indexform');
+Route::post('subscribe', [indexformController::class,'formsubmit'])->name('indexform.submit');
 
 Route::get('about', [About::class,'About'])->name('about');
 
 Route::get('contact', [Contact::class,'Contact'])->name('contact');
+Route::post('contact', [Contact::class,'ContactForm'])->name('contactform.submit');
 
 Route::get('others', [Others::class,'Others'])->name('others');
 
